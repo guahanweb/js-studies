@@ -13,11 +13,11 @@ attempted to create as narrow a code base as possible to avoid any duplication.
 
 #### The Problem
 ```JavaScript
-/* Support all four basic arithmetic operations in a functional way. */
-
+// Reversable numeric functions
 one(plus(two())); // 3
 two(plus(one())); // 3
 
+// Support all four basic arithmetic operations
 three(minus(two())); // 1
 three(times(two())); // 6
 four(dividedby(two())); // 2
