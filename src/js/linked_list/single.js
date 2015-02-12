@@ -1,3 +1,4 @@
+var LinkedList = LinkedList || {};
 (function (scope) {
     'use strict';
 
@@ -45,5 +46,5 @@
         }
     };
 
-    scope.LinkedList = LinkedList;
-})(window);
+    scope.single = LinkedList;
+})(LinkedList);

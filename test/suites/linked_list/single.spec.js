@@ -1,7 +1,7 @@
 describe('LinkedList', function () {
     describe('Instantiation and additive behavior', function () {
         beforeEach(function () {
-            this.ll = new LinkedList();
+            this.ll = new LinkedList.single();
         });
 
         it ('should have a LinkedList defined', function () {
@@ -27,7 +27,7 @@ describe('LinkedList', function () {
 
     describe('Removing nodes', function () {
         beforeEach(function () {
-            this.ll = new LinkedList();
+            this.ll = new LinkedList.single();
             this.ll.add('what');
             this.ll.add('is');
             this.ll.add('your');
