@@ -18,6 +18,10 @@
     <script src="../bower_components/sinon-browser-only/sinon.js"></script>
     <!-- endinject -->
 
+    <script data-cover-only="src/js"
+            data-cover-modulepattern=".*\/js\/(\w+)"
+            data-cover-reporter="../build/report/blanketHtmlReporter.js"
+            src="../bower_components/blanket/dist/qunit/blanket.js"></script>
     <!-- all:js -->
     <script src="../src/js/functional_arithmetic/index.js"></script>
     <script src="../src/js/linked_list/single.js"></script>
@@ -34,7 +38,13 @@
     <!-- endinject -->
     <script>
         if (window.mochaPhantomJS) {
-            mochaPhantomJS.run();
+            blanket.beforeStartTestRunner({
+                callback: function () {
+                    if (!blanket.options('existingRequireJS')) {
+                        mochaPhantomJS.run();
+                    }
+                }
+            });
         } else {
             mocha.run();
         }
