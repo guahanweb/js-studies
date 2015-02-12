@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mocha Test Runner</title>
+    <!-- bower:css -->
+    <!-- endinject -->
+</head>
+<body>
+    <div id="mocha"></div>
+    <!-- bower:js -->
+    <!-- endinject -->
+
+    <!-- @if coverage -->
+    <script data-cover-only="src/js"
+            data-cover-modulepattern=".*\/js\/(\w+)"
+            data-cover-reporter="../build/report/blanketHtmlReporter.js"
+            src="../bower_components/blanket/dist/qunit/blanket.js"></script>
+    <!-- @endif -->
+
+    <!-- all:js -->
+    <!-- endinject -->
+
+    <script>var assert = chai.assert;</script>
+
+    <div id="sandbox"></div>
+
+    <script>mocha.setup('bdd');</script>
+    <!-- suites:js -->
+    <!-- endinject -->
+    <script>
+        if (window.mochaPhantomJS) {
+            <!-- @if !coverage -->
+            mochaPhantomJS.run();
+            <!-- @endif -->
+
+            <!-- @if coverage -->
+            blanket.beforeStartTestRunner({
+                callback: function () {
+                    if (!blanket.options('existingRequireJS')) {
+                        mochaPhantomJS.run();
+                    }
+                }
+            });
+            <!-- @endif -->
+        } else {
+            mocha.run();
+        }
+    </script>
+</body>
+</html>

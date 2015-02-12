@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mocha Test Runner</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="../bower_components/mocha/mocha.css">
+    <!-- endinject -->
+</head>
+<body>
+    <div id="mocha"></div>
+    <!-- bower:js -->
+    <script src="../bower_components/blanket/dist/qunit/blanket.js"></script>
+    <script src="../bower_components/chai/chai.js"></script>
+    <script src="../bower_components/mocha/mocha.js"></script>
+    <script src="../bower_components/sinon-browser-only/sinon.js"></script>
+    <!-- endinject -->
+
+    <script data-cover-only="src/js"
+            data-cover-modulepattern=".*\/js\/(\w+)"
+            data-cover-reporter="../build/report/blanketHtmlReporter.js"
+            src="../bower_components/blanket/dist/qunit/blanket.js"></script>
+    <!-- all:js -->
+    <script src="../src/js/LinkedList.js"></script>
+    <!-- endinject -->
+
+    <script>var assert = chai.assert;</script>
+
+    <div id="sandbox"></div>
+
+    <script>mocha.setup('bdd');</script>
+    <!-- suites:js -->
+    <script src="suites/LinkedListSpec.js"></script>
+    <!-- endinject -->
+    <script>
+        if (window.mochaPhantomJS) {
+            blanket.beforeStartTestRunner({
+                callback: function () {
+                    if (!blanket.options('existingRequireJS')) {
+                        mochaPhantomJS.run();
+                    }
+                }
+            });
+        } else {
+            mocha.run();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "linkedlist",
+  "version": "0.0.0",
+  "authors": [
+    "Garth Henson <grth.a.henson@disney.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "blanket": "latest",
+    "chai": "latest",
+    "mocha": "latest",
+    "sinon-browser-only": "latest"
+  }
+}

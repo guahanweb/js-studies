@@ -1,0 +1,29 @@
+{
+  "name": "js-studies",
+  "version": "0.0.0",
+  "description": "Personal JavaScript studies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Garth Henson <garth@guahanweb.com>",
+  "license": "MIT",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "gulp": "^3.8.11",
+    "gulp-inject": "^1.1.1",
+    "gulp-jshint": "^1.9.2",
+    "gulp-mocha-phantomjs": "^0.5.3",
+    "gulp-preprocess": "^1.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-util": "^3.0.3",
+    "main-bower-files": "^2.5.0",
+    "yargs": "^2.3.0"
+  }
+}
